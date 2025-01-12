@@ -3,8 +3,12 @@ import Article from "../pages/Article";
 import Layout from "../pages/layout";
 import Board from "../pages/Board";
 import About from "../pages/About";
+import NotFound from "../pages/NotFound";
 
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, createHashRouter } from "react-router-dom";
+
+// createBrowserRouter --- 使用历史模式
+// createHashRouter --- 使用hash模式
 
 // 创建 router 实例，并配置路由规则数组
 const router = createBrowserRouter([
@@ -41,6 +45,12 @@ const router = createBrowserRouter([
         element: <About />,
       },
     ],
+  },
+
+  // 404 Not Found 兜底的路由规则
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 
